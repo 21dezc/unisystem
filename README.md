@@ -7,6 +7,8 @@
 
 ### Class Diagram
 
+## Class Diagram
+
 ```mermaid
 classDiagram
     class Advisor {
@@ -29,6 +31,7 @@ classDiagram
     Advisor "1" --> "0..*" Student : manages
     Student "*" --> "1" Advisor : advised by
 ```
+
 ### คำอธิบายโครงสร้างคลาส:
 ## หลักการออกแบบเชิงวัตถุที่ใช้
 
