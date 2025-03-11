@@ -1,14 +1,34 @@
 # unisystem
  
-# ระบบจัดการนักศึกษาและอาจารย์ที่ปรึกษา
+# โปรแกรมสำหรับอาจารย์บันทึกข้อมูลนักศึกษา
 
 **ชื่อ: [อัยรดา โพธิ์ราศรี]**  
 **รหัสนักศึกษา: [673450206-5]**
 
-## โครงสร้างของคลาส
-- **คลาส Advisor**: ใช้แทนอาจารย์ที่ปรึกษา โดยมีคุณสมบัติเช่น `FirstName`, `LastName` และรายการ `Students` ซึ่งสามารถเพิ่มนักศึกษาได้
-- **คลาส Student**: ใช้แทนนักศึกษา โดยมีคุณสมบัติเช่น `StudentID`, `FirstName`, `LastName`, `Major`, `Grade` และ `Advisor` ที่ใช้ในการเชื่อมโยงนักศึกษากับอาจารย์ที่ปรึกษา
+### Class Diagram
 
+```mermaid
+classDiagram
+    class Advisor {
+        +String firstName
+        +String lastName
+        +List~Student~ students
+        +AddStudent(Student student)
+    }
+
+    class Student {
+        +String studentID
+        +String firstName
+        +String lastName
+        +String major
+        +Float grade
+        +Advisor advisor
+        +AddAdvisor(Advisor advisor)
+    }
+
+    Advisor "1" --> "0..*" Student : manages
+    Student "*" --> "1" Advisor : advised by
+```
 ### คำอธิบายโครงสร้างคลาส:
 ## หลักการออกแบบเชิงวัตถุที่ใช้
 
